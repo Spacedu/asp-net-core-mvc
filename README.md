@@ -4,7 +4,7 @@ Este repositório contém o projeto utilizado no curso prático de **ASP.NET Cor
 
 ## 🚀 Tecnologias Utilizadas
 
-- .NET 6/7/8 (dependendo da versão usada no curso)
+- .NET 9 (dependendo da versão usada no curso)
 - ASP.NET Core MVC
 - Entity Framework Core
 - Razor Pages (Views)
