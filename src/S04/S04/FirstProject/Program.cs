@@ -1,28 +1,24 @@
-/*
- * Program.cs + Startup.cs
- * ASP.NET Core <5.0:
- * - Startup.cs:
- * -- ConfigureService = Add Services(Database, Queue, DI.....)
- * -- Configure = Pipeline
- * ASP.NET Core 5.0:
- * - builder.Services = ConfigureService
- * - app = Configure
- */
-
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
-app.Run(async(HttpContext context) => {
-    //Request: Address, Method, Headers, Body
-    //Response: Status Code, Header, Body
-    if(context.Request.Path.ToString()== "/contact")
-    {
-        await context.Response.WriteAsync("Contact Page!");
-    }
-    else {
-        context.Response.StatusCode = 201;
-        await context.Response.WriteAsync("Hello World! 2025");
-    }
-});
+/*
+ * Path = /{controller}/{action}/{id?}
+ * https://www.yousite.com/users/register
+ * https://www.yousite.com/users/edit/1 
+ * 
+ * 
+ * https://www.youblog.com/
+ * https://www.youblog.com/news/{slug}
+ * https://www.youblog.com/news/car-crash
+ * 
+ * https://www.youblog.com/news
+ */
+
+app.UseRouting();
+app.MapControllerRoute(
+    name:"default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();
