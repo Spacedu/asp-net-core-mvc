@@ -13,7 +13,20 @@ var app = builder.Build();
  * https://www.youblog.com/news/car-crash
  * 
  * https://www.youblog.com/news
+ * 
+ * wwwroot/images/1.jpg (Headers: E-Tag - Zip)
+ * https://www.youblog.com/images/1.jpg
  */
+
+/*
+ * ASP.NET Core < 9.0
+ * - UseStaticFiles
+ * 
+ * ASP.NET Core >9.0
+ * - MapStaticAssets
+ */
+
+app.MapStaticAssets();
 
 app.UseRouting();
 app.MapControllerRoute(
