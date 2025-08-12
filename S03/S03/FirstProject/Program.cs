@@ -15,18 +15,12 @@ var app = builder.Build();
  * - next: > Next Middleware
  */
 
-//Middleware 1
-app.Use(async (context, next) => {
-    await context.Response.WriteAsync("Start - Middleware 1!");
-    await next.Invoke();
-    await context.Response.WriteAsync("End - Middleware 1!");
+app.Run(async (context) => {
+    context.Response.ContentType = "text/html";
+    if (context.Request.Path == "/contact")
+    {
+        await context.Response.WriteAsync("This is the contact page.");
+    }
+    await context.Response.WriteAsync("<strong>Copyright &copy; </strong>Spacedu");    
 });
-
-//Middleware 2
-app.Use(async (context, next) => {
-    await context.Response.WriteAsync("Start - Middleware 2!");
-    await next.Invoke();
-    await context.Response.WriteAsync("End - Middleware 2!");
-});
-
 app.Run();
