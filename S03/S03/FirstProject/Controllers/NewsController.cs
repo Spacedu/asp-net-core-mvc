@@ -25,8 +25,9 @@ public class NewsController : Controller
     }
 
     /* Client View News */
-    public IActionResult Visualize()
+    public IActionResult Visualize(int year, int month, int day, string country, string category, string slug)
     {
+        return Ok(new { year, month, day, country, category, slug });
         return View();
     }
 }
