@@ -1,0 +1,7 @@
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+//Minimal API
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
