@@ -1,26 +1,28 @@
 var builder = WebApplication.CreateBuilder(args);
-/*
- * MVC, Blazor Server, RazorPages, Database, Architecture (DI), Smtp...
- * builder.Services.Add
- */
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-/*
- * Pipeline
- */
+app.UseStaticFiles();
+app.UseRouting();
 
-/*
- * Middleware
- * - context: Request + Response
- * - next: > Next Middleware
- */
+//www.yousite.com.br/{controller}/{action}/{id?}
 
-app.Run(async (context) => {
-    context.Response.ContentType = "text/html";
-    if (context.Request.Path == "/contact")
-    {
-        await context.Response.WriteAsync("This is the contact page.");
-    }
-    await context.Response.WriteAsync("<strong>Copyright &copy; </strong>Spacedu");    
-});
+
+//www.yousite.com.br/
+//www.yousite.com.br/Home
+//www.yousite.com.br/Home/Index
+
+//CRUD
+//www.yousite.com/News -> www.yousite.com/News/Index
+//www.yousite.com/News/Index
+//www.yousite.com/News/Add
+//www.yousite.com/News/Edit/1
+//www.yousite.com/News/Delete/10
+
+app.MapControllerRoute(
+    name:"default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+
+
 app.Run();
