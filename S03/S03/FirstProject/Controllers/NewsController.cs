@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FirstProject.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FirstProject.Controllers;
 
@@ -9,17 +10,8 @@ public class NewsController : Controller
      */
     public IActionResult Index()
     {
-        return Content(
-            "<messages><message>Hello World 1!</message><message>Hello World 2!</message></messages>",
-            "text/xml"
-        );
-
-        return new ContentResult()
-        {
-            Content = "<messages><message>Hello World!</message><message>Hello World 2!</message></messages>",
-            ContentType = "text/xml", //text/plain - text/html - text/xml - application/xml, application/json
-            StatusCode = 200
-        };
+        var news = new News { Id =1, Title = "Title 1", Text = "Text 1" };
+        return Json(news);
     }
     public IActionResult Add()
     {
