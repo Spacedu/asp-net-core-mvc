@@ -10,8 +10,11 @@ public class NewsController : Controller
      */
     public IActionResult Index()
     {
-        var news = new News { Id =1, Title = "Title 1", Text = "Text 1" };
-        return Json(news);
+        //return new VirtualFileResult("images/cover.jpg", "image/jpg");
+        //return new PhysicalFileResult(@"C:\Users\elias\OneDrive\Pictures\Wallpaper\Abstract\8894463.jpg", "image/jpg");
+
+        var byteArray = System.IO.File.ReadAllBytes(@"C:\Users\elias\OneDrive\Pictures\Wallpaper\Abstract\bigsur.jpg");
+        return new FileContentResult(byteArray, "image/jpg");
     }
     public IActionResult Add()
     {
