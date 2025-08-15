@@ -10,11 +10,9 @@ public class NewsController : Controller
      */
     public IActionResult Index()
     {
-        //return new VirtualFileResult("images/cover.jpg", "image/jpg");
-        //return new PhysicalFileResult(@"C:\Users\elias\OneDrive\Pictures\Wallpaper\Abstract\8894463.jpg", "image/jpg");
-
-        var byteArray = System.IO.File.ReadAllBytes(@"C:\Users\elias\OneDrive\Pictures\Wallpaper\Abstract\bigsur.jpg");
-        return new FileContentResult(byteArray, "image/jpg");
+        return View("Add");
+        return View();
+        return new ViewResult() { ViewName = "Index", ContentType = "text/html", StatusCode = 200 };
     }
     public IActionResult Add()
     {
