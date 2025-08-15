@@ -10,9 +10,19 @@ public class NewsController : Controller
      */
     public IActionResult Index()
     {
-        return View("Add");
-        return View();
-        return new ViewResult() { ViewName = "Index", ContentType = "text/html", StatusCode = 200 };
+        /*
+         * return Redirect("https://www.google.com");
+         * return new RedirectResult("https://www.google.com");
+         * 
+         * return LocalRedirect("/news/add");
+         * return new LocalRedirectResult("/news/add");
+         * 
+         * /{controller}/{action}/{id?}
+         * /{action}/{controller}
+        */
+
+        return RedirectToAction("add", "news");
+        return new RedirectToActionResult("add", "news", new { }); // Generate URL
     }
     public IActionResult Add()
     {
