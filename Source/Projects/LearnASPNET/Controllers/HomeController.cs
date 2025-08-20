@@ -31,5 +31,16 @@ namespace LearnASPNET.Controllers
             return Json(user);
             return new JsonResult(user);
         }
+
+        public IActionResult FileView()
+        {
+            //wwwroot
+            //return new VirtualFileResult("pdfs/news1.pdf", "application/pdf");
+
+            //return new PhysicalFileResult(@"C:\Dev\asp-net-core-mvc\Materials\S03\payment.pdf", "application/pdf");
+
+            var bytes = System.IO.File.ReadAllBytes(@"C:\Dev\asp-net-core-mvc\Source\Projects\LearnASPNET\wwwroot\pdfs\home.pdf");
+            return new FileContentResult(bytes, "application/pdf");
+        }
     }
 }
