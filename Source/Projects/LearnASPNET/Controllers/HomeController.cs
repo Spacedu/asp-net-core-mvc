@@ -2,7 +2,6 @@
 
 namespace LearnASPNET.Controllers
 {
-    
     public class HomeController : Controller
     {
         
@@ -46,6 +45,18 @@ namespace LearnASPNET.Controllers
         {
             return View("Index");
             return new ViewResult() { StatusCode = 200, ViewName = "ViewView", ContentType = "text/html" };
+        }
+        public IActionResult RedirectView()
+        {
+            //return Redirect("https://www.google.com");
+            //return new RedirectResult("https://www.google.com");
+
+            //return LocalRedirect("/Home/FileView");
+            //return new LocalRedirectResult("/Home/FileView");
+
+            //{year:int}/{month:int}/{day:int}/{country}/{category}/{*slug}
+            //return RedirectToAction("Visualize", "News", new { year = 2025, month = 7, day = 10, country = "us", category = "economy", slug = "SP&500" });
+            return new RedirectToActionResult("Visualize", "News", new { year = 2025, month=7, day=10, country="us", category="economy", slug = "SP&500" });
         }
     }
 }
