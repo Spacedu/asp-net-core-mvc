@@ -16,8 +16,6 @@ app.MapControllerRoute(
     pattern: "{year:int}/{month:int}/{day:int}/{country}/{category}/{*slug}",
     defaults: new { controller = "News", action="Visualize"}
 );
-
-
 #endregion
 
 app.MapControllerRoute(
