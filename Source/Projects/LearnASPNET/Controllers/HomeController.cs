@@ -22,5 +22,14 @@ namespace LearnASPNET.Controllers
                 StatusCode = 200
             };
         }
+
+        public IActionResult JsonView()
+        {
+            var user = new { name = "Jhon", age = 20 };
+
+            return Ok(user);
+            return Json(user);
+            return new JsonResult(user);
+        }
     }
 }
