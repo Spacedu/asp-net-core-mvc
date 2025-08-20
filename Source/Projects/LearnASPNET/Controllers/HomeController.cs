@@ -42,5 +42,10 @@ namespace LearnASPNET.Controllers
             var bytes = System.IO.File.ReadAllBytes(@"C:\Dev\asp-net-core-mvc\Source\Projects\LearnASPNET\wwwroot\pdfs\home.pdf");
             return new FileContentResult(bytes, "application/pdf");
         }
+        public IActionResult ViewView()
+        {
+            return View("Index");
+            return new ViewResult() { StatusCode = 200, ViewName = "ViewView", ContentType = "text/html" };
+        }
     }
 }
