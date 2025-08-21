@@ -14,6 +14,7 @@
 @{
     var name = "Jhon".ToUpper();
     var num = 1;
+    var heading = "<h3>Statement</h3>";
 }
 
 @(name + " Rodrigues")
@@ -21,21 +22,32 @@
 @(num + 1)
 
 @*
-    Comment
+    Comment:
+    @:{text}
+    <text></text>
+    <{html}></{html}>
+
+    Helpers:
+    HTML
 *@
 <br />
+
+@Html.Raw(heading)
+
 IF:
+<br />
 @if(num == 1)
 {
     num = 2;
-    <strong>@num</strong>
+    @:Num: <strong>@num</strong>
 } else
 {
     
 }
 <br />
 FOR:
+<br />
 @for (int i = 0; i < 10; i++)
 {
-    <strong>Num:</strong> @i <br />
+    <text>Num:</text> @i <br />
 }
