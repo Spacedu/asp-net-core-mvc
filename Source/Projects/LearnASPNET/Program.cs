@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews();
-var app = builder.Build();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
+var app = builder.Build();
 #region News Route
 /*
  CRUD:
@@ -17,12 +17,10 @@ app.MapControllerRoute(
     defaults: new { controller = "News", action="Visualize"}
 );
 #endregion
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
-
 app.UseStaticFiles();
 
 app.Run();
